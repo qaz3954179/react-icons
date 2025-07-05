@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FaRegClipboard } from "react-icons/fa6";
 import copy from "copy-to-clipboard";
 import toast from "cogo-toast";
 import { useKeyDown } from "../utils/usekeydown";
@@ -123,7 +122,6 @@ export function IconDetailModal(
                   });
                 }}
               >
-                <FaRegClipboard />
                 <span className="text">{text}</span>
               </button>
             </li>

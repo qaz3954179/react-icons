@@ -13,6 +13,7 @@ import { type IconManifestType, IconTree } from "../src";
 export async function getIconFiles(content: IconDefinitionContent) {
   if (typeof content.files === "string") {
     const pattern = content.files.replace(/\\/g, "/"); // convert windows path
+    console.log('glob:', pattern)
     return glob(pattern);
   }
   return content.files();
@@ -46,17 +47,19 @@ export async function convertIconData(
           switch (newName) {
             case "fill":
             case "stroke":
-              if (
-                attribs[name] === "none" ||
-                attribs[name] === "currentColor" ||
-                multiColor
-              ) {
-                obj[newName] = attribs[name];
-              }
+              // if (
+              //   attribs[name] === "none" ||
+              //   attribs[name] === "currentColor" ||
+              //   multiColor
+              // ) {
+              //   obj[newName] = attribs[name];
+              // }
               break;
             case "pId":
               break;
             case "dataName":
+              break;
+            case "style":
               break;
             default:
               if (name.startsWith("data")) {
